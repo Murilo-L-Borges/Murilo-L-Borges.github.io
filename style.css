@@ -394,3 +394,12 @@ transition: .8s;
     }
     
 }
+
+
+/*sorteio*/
+
+
+.ativar-dark:checked ~ .dark-mode #sorteio{
+    color:#a0a0a0 ;
+}
+
