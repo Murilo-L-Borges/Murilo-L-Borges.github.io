@@ -5,7 +5,9 @@
 
 
 // 1º passo - capturar os campos
+const campoNomes = document.getElementById('nomes');
 const qtdResultadosInput = document.getElementById('qtdResultados');
+const btnFecharResultado = document.getElementById('btnFecharResultado');
 const numeroInicialInput = document.getElementById('inBetweenNumber');
 const numeroFinalInput = document.getElementById('andNumber');
 const buttonSortear = document.getElementById('buttonSortear');
@@ -20,7 +22,30 @@ const resultado = document.getElementById('resultado');
 // a) gerar número aleatório
 // b) limitar - adicionar um 'range' e gerar um numero
 //    dentro de um intervalo de número
+
 // c) fazer isso uma certa quantidade de vezes(utilizar o qtdResultadosInput)
+
+
+
+function verificaEscolha(){
+    const selecaoNome  = document.getElementById('selecaoNome').checked
+    if(selecaoNome == true){
+        
+        sortearNomes()
+
+    }else{
+        sortearNumeros()
+    }
+}
+
+function sortearNomes(){
+    const listaNomes = document.getElementById('nomes').value;
+    const arrayNomes = listaNomes.split(",")
+    const posicaoNome =  gerarNumeroAleatorio(0,arrayNomes.length-1)
+    limparResultado()
+    mostrarNaTela(arrayNomes[posicaoNome])
+    painelResultado.classList.add('mostrarResultado');
+}
 
 function sortearNumeros(){
     const qtdResultados = parseInt(qtdResultadosInput.value);
@@ -28,31 +53,46 @@ function sortearNumeros(){
     const numeroFinal = parseInt(numeroFinalInput.value);
     
     // 3º passo - imprimir o resultado
-    resultado.innerText = '';
+    limparResultado()
     for(let i = 0; i < qtdResultados; i++){
         const randomNumber = gerarNumeroAleatorio(numeroInicial, numeroFinal);
 
         if(i < qtdResultados - 1){
-            resultado.innerText += randomNumber + '-';
+            mostrarNaTela(randomNumber + '-');
         } else{
-            resultado.innerText += randomNumber;
+            mostrarNaTela(randomNumber);
         }
     }
-
     painelResultado.classList.add('mostrarResultado');
+}
+
+function mostrarNaTela(string){
+    
+    resultado.innerText += string
 }
 
 function gerarNumeroAleatorio(numeroInicial, numeroFinal){
     return Math.floor(Math.random() * (numeroFinal - numeroInicial + 1)) + numeroInicial;
 }
 
-buttonSortear.addEventListener('click', sortearNumeros);
+buttonSortear.addEventListener('click', verificaEscolha);
 
 
 function limparCampos(){
     qtdResultadosInput.value = '';
     numeroInicialInput.value = '';
     numeroFinalInput.value = '';
+    campoNomes.value = "";
 }
 
+function limparResultado(){
+    resultado.innerText = '';
+}
 buttonLimpar.addEventListener('click', limparCampos);
+
+
+btnFecharResultado.addEventListener('click', fecharResultado);
+function fecharResultado(){
+    painelResultado.classList.remove('mostrarResultado');
+    
+}

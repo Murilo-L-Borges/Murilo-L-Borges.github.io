@@ -41,9 +41,8 @@ header{
     text-align: center;
     margin-bottom: 100px;
 }
-    header img{
-        max-width: 150px;
-        vertical-align: middle;
+    header h1 strong{
+        font-size: 3rem;
     }
     header h1{
         display: inline-block;
@@ -74,20 +73,41 @@ main p{
     text-align: center;
     margin-bottom: 20px;
 }
+main>label{
+    padding: 10px;
+    cursor: pointer;
+  
+}
+main>input{
+    float: left;
+    cursor: pointer;
+}
 main .formulario{
    
 }
+    main .formulario .input-model-nomes{
+        display: none;
+    }
+    main>input[type="checkbox"]:checked ~ .formulario .input-model-nomes{
+        display: block;
+    }
+    main>input[type="checkbox"]:checked ~ .formulario .input-model-numeros{
+        display: none;
+    }
     main .formulario label{
         display: block;
         font-size: 14px;
         font-weight: 400;
     }
-    main .formulario input{
+    main .formulario input, main .formulario textarea{
         display: block;
         padding: 10px;
         width: 100%;
         height: 40px;
         margin:10px 0
+    }
+    main .formulario textarea{
+        min-height: 150px;
     }
 button{
     background-color: #1480fa;
@@ -113,7 +133,20 @@ button{
     justify-content: center;
     transition: .5s;
 }
-
+.resultado span{
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    border-radius: 100%;
+    border: solid 2px #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
 .resultado.mostrarResultado{
     left: 0;
     transition: .5s;
@@ -129,10 +162,66 @@ button{
 }
 
 footer{
-    padding: 30px;
-    height: 200px;
+    
     background-color: #04133d;
-    text-align: center;
+    
     margin-top: 100px;
-    background-image: url(https://kenzie.com.br/images/conheca-coover.png);
+   
 }
+
+footer .container{
+    padding: 20px;
+    background-color: #04133d;
+}
+footer nav ul li a{
+    color: white;
+    background-color: #04133d;
+}
+
+
+footer nav .info-contato li{
+    margin: 0 0 15px;
+    background-color: #04133d;
+}
+
+footer nav .info-contato a{
+    opacity: .5;
+transition: all 1s;
+background-color: #04133d;
+}
+
+footer nav .info-contato a:hover{
+    opacity: 1;
+    color:#636363;
+}
+
+footer nav .redes-sociais{
+    border-top: 1px solid rgb(255 255 255 / 20%);
+   align-items: center;
+   background-color: #04133d;
+    
+}
+footer nav .redes-sociais li{
+    margin: 30px 28px;
+    text-align: center;
+    display: inline-block;
+    background-color: #04133d;
+}
+
+footer nav .redes-sociais li a img{
+    width: 40px;
+    opacity: .5;
+    transition: all 1s;
+    left: 460px;
+    align-items: center;
+    position: relative;
+    background-color: #04133d;
+}
+
+footer nav .redes-sociais li a img:hover{
+ opacity: 1;
+ 
+
+}
+
+
