@@ -83,6 +83,7 @@ header .coluna-direita{
 
 header .coluna img{
     max-width: 100%;
+    border-radius: 1.5%;
 }
 header .coluna h1{
     font-size: 1.9rem;
@@ -314,7 +315,7 @@ transition: .8s;
     }
     header .coluna img{
         max-width: 250px;
-        border-radius: 100%;
+        border-radius: 5%;
     }
 
     header .coluna-direita a{
